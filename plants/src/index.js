@@ -5,8 +5,8 @@ import App from './App';
 import './styles/reset.css';
 
 render(
-    <Router>
-        <App />
-    </Router>,
-    document.getElementById('root'),
+  <Router> 
+    <App />
+  </Router>, 
+  document.getElementById('root')
 );
