@@ -128,7 +128,7 @@ export default function SignUp(){
                     Already a user? Sign-in!
                 </Link>
                 <br></br>
-                <button disabled={disabled}> Register </button>
+                <button> Register </button>
             </form>
     </div>
     )
