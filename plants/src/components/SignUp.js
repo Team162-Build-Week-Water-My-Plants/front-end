@@ -7,7 +7,7 @@ import {Link, useHistory} from 'react-router-dom';
 const schema = Yup.object().shape({
     fname: Yup.string().trim().required('Name required').min(6, 'please enter a name longer than 6 chars'),
     email: Yup.string().required('Email required').min(6, 'please enter a valid email address'),
-    phone: Yup.number().required('Phone required')
+    phone: Yup.number().required('Phone required'),
     password: Yup.string().required('Password required')
 })
 
