@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import * as yup from 'yup'
+import * as Yup from 'yup'
 import { axiosAuth } from '../utils/axiosAuth';
 import {Link, useHistory} from 'react-router-dom';
 
 
-const schema = yup.object().shape({
-    fname: yup.string().required('user is required').min(6, 'please enter a name longer than 6 chars'),
-    email: yup.string().required('email is required').min(6, 'please enter a valid email address'),
-    phone: yup.number().required('phone is required'),
-    password: yup.string().required('u need a password')
+const schema = Yup.object().shape({
+    fname: Yup.string().required('user is required').min(6, 'please enter a name longer than 6 chars'),
+    email: Yup.string().required('email is required').min(6, 'please enter a valid email address'),
+    phone: Yup.number().required('phone is required'),
+    password: Yup.string().required('u need a password')
 })
 
 export default function SignUp(){
@@ -27,11 +27,9 @@ export default function SignUp(){
     }) 
     const history = useHistory();
 
-    // const [disabled, setDisabled] = useState(true)
+
     const onInputChange = event => {
-        // const { form, value, type, name } = event.target
-        // const valueToUse = type === 'text'? name :  value
-        const newForm= {...formData,[event.target.name]: event.target.value}
+    const newForm= {...formData,[event.target.name]: event.target.value}
         validation(event)
         setFormData(newForm)
     }
@@ -68,11 +66,7 @@ export default function SignUp(){
         })
     }
 
-//     useEffect(() => {
-//         schema.isValid(formData).then(valid => {
-//             setDisabled(!valid)
-//         })
-//   }, [formData])
+
 
 
     return (
