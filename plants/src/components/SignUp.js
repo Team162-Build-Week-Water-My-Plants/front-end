@@ -3,14 +3,15 @@ import * as Yup from 'yup'
 import { axiosAuth } from '../utils/axiosAuth';
 import {Link, useHistory} from 'react-router-dom';
 
-
+// formSchema using Yup
 const schema = Yup.object().shape({
-    fname: Yup.string().required('user is required').min(6, 'please enter a name longer than 6 chars'),
-    email: Yup.string().required('email is required').min(6, 'please enter a valid email address'),
-    phone: Yup.number().required('phone is required'),
-    password: Yup.string().required('u need a password')
+    fname: Yup.string().trim().required('Name required').min(6, 'please enter a name longer than 6 chars'),
+    email: Yup.string().required('Email required').min(6, 'please enter a valid email address'),
+    phone: Yup.number().required('Phone required')
+    password: Yup.string().required('Password required')
 })
 
+//InitialState
 export default function SignUp(){
     const [formData, setFormData] = useState({
         fname: '',
@@ -127,7 +128,7 @@ export default function SignUp(){
                     Already a user? Sign-in!
                 </Link>
                 <br></br>
-                <button > Register </button>
+                <button disabled={disabled}> Register </button>
             </form>
     </div>
     )
