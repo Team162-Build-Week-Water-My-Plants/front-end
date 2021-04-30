@@ -20,6 +20,9 @@ const Nav = () => {
                 <NavLink to="/add-plant" className="nav-links">
                     Add Plant
                 </NavLink>
+                <NavLink to="/user-info" className="nav-links">
+                    Account Settings
+                </NavLink>
                 <NavLink onClick={logout} to="/" className="nav-links">
                     Logout
                 </NavLink>

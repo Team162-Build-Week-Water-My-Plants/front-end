@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
 
@@ -12,6 +12,7 @@ const initialForm = {
 export const EditPlant = (props) => {
   const [plantToEdit, setPlantToEdit] = useState(initialForm);
   const plantId = props.match.params.id;
+  const history = useHistory()
 
   useEffect(() => {
     axios.get(`https://reqres.in/api/users/${plantId}`)
@@ -27,6 +28,9 @@ export const EditPlant = (props) => {
     axios.put(`https://reqres.in/api/users/${plantId}`, plantToEdit)
       .then(res => {
         console.log('axios.put: res ', res)
+        setPlantToEdit(res.data)
+        history.push(`/my-plants/${plantId}`)
+
         
         // const changedPlant = res.data.data.find(item => item.id === plantId)
         // console.log('axios.put: changedplant: ',changedPlant)
@@ -63,7 +67,7 @@ export const EditPlant = (props) => {
               type='text'
               name='nickname'
               id='nickname'
-              value={plantToEdit.first_name}
+              value={plantToEdit.nickname}
               onChange={changeHandler}
             />
           <label className="add-plant-label">Plant's Species</label>
@@ -71,7 +75,7 @@ export const EditPlant = (props) => {
               type='text'
               name="species"
               id="species"
-              value={plantToEdit.last_name}
+              value={plantToEdit.species}
               onChange={changeHandler}
             />
           <label className="add-plant-label">Watering Instructions</label>
@@ -79,7 +83,7 @@ export const EditPlant = (props) => {
               type="text"
               name="h2o_Frequency"
               id="h2o_Frequency"
-              value={plantToEdit.email}
+              value={plantToEdit.h2o_Frequency}
               onChange={changeHandler}
             />
           <div className="form-button-container">
