@@ -16,7 +16,7 @@ Yup-phone
 Axios
 React-router-dom
 
-# API: https://reqres.in/
+# Log in using Reqres API: https://reqres.in/
 login info:
   -username: eve.holt@reqres.in
   -phone_number: (can be whatever you want it to be) 
